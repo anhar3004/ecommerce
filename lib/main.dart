@@ -1,9 +1,10 @@
 import 'package:ecommerce_app/page/home.dart';
 import 'package:ecommerce_app/page/login.dart';
 import 'package:ecommerce_app/page/register.dart';
-import 'package:ecommerce_app/page/main.dart';
 import 'package:ecommerce_app/util/const.dart';
 import 'package:flutter/material.dart';
+
+import 'page/main_page.dart';
 
 void main() {
   runApp(MyApp());

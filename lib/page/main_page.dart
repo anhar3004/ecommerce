@@ -29,7 +29,7 @@ class _MainPageState extends State<MainPage> {
           canvasColor: Theme.of(context).primaryColor,
           primaryColor: Theme.of(context).accentColor,
           textTheme: Theme.of(context).textTheme.copyWith(
-                caption: TextStyle(color: Colors.grey[500]),
+                caption: TextStyle(color: Colors.white),
               ),
         ),
         child: BottomNavigationBar(

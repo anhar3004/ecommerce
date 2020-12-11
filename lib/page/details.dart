@@ -40,7 +40,7 @@ class _DetailsState extends State<Details> {
               ),
               SizedBox(height: 10.0),
               Text(
-                "\$550.00",
+                "Rp. 3.500.000",
                 style: TextStyle(
                   fontSize: 27.0,
                   fontWeight: FontWeight.w600,
@@ -54,7 +54,7 @@ class _DetailsState extends State<Details> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10.0),
+              SizedBox(height: 60.0),
               Text(
                 "Sed porttitor lectus nibh. Cras ultricies ligula "
                 "sed magna dictum porta. Praesent sapien massa, "
@@ -65,7 +65,7 @@ class _DetailsState extends State<Details> {
                 "porttitor at sem.",
                 style: TextStyle(
                   fontSize: 15.0,
-                  color: Colors.grey,
+                  // color: Colors.black,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -119,7 +119,7 @@ class _DetailsState extends State<Details> {
             color: Theme.of(context).accentColor,
             boxShadow: [
               BoxShadow(
-                color: Colors.orange[200],
+                color: Colors.white,
                 offset: Offset(0.0, 10.0),
                 blurRadius: 10,
               ),

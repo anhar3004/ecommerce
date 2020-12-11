@@ -4,18 +4,18 @@ class Constants {
   static String appName = "Furniture App";
 
   //Colors for theme
-  static Color lightPrimary = Colors.grey[400];
+  static Color lightPrimary = Color.fromRGBO(113, 119, 217, 1);
   static Color darkPrimary = Colors.black;
-  static Color lightAccent = Colors.orange;
+  static Color lightAccent = Color.fromRGBO(143, 148, 251, 1);
   static Color darkAccent = Colors.orangeAccent;
   static Color lightBG = Color(0xfffcfcff);
   static Color darkBG = Colors.black;
 
   static ThemeData lightTheme = ThemeData(
-    backgroundColor: Color.fromRGBO(143, 148, 251, 1),
+    backgroundColor: lightPrimary,
     primaryColor: lightPrimary,
     accentColor: lightAccent,
-    cursorColor: lightAccent,
+    cursorColor: lightBG,
     scaffoldBackgroundColor: lightBG,
     appBarTheme: AppBarTheme(
       elevation: 0,
@@ -33,9 +33,9 @@ class Constants {
     brightness: Brightness.dark,
     backgroundColor: darkBG,
     primaryColor: darkPrimary,
-    accentColor: darkAccent,
+    accentColor: lightAccent,
     scaffoldBackgroundColor: darkBG,
-    cursorColor: darkAccent,
+    cursorColor: lightAccent,
     appBarTheme: AppBarTheme(
       elevation: 0,
       textTheme: TextTheme(
