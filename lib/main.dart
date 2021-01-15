@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/page/home.dart';
 import 'package:ecommerce_app/page/login.dart';
+import 'package:ecommerce_app/page/product.dart';
 import 'package:ecommerce_app/page/register.dart';
 import 'package:ecommerce_app/util/const.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
     RegisterPage.tag: (context) => RegisterPage(),
     HomePage.tag: (context) => HomePage(),
     MainPage.tag: (context) => MainPage(),
+    ProductPage.tag: (context) => ProductPage(),
   };
   // This widget is the root of your application.
   @override

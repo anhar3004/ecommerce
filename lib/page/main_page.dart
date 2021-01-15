@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/page/about.dart';
+import 'package:ecommerce_app/page/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:ecommerce_app/page/home.dart';
@@ -13,7 +14,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   PageController _pageController;
   int _page = 0;
-  List<Widget> _screens = [HomePage(), HomePage(), HomePage(), AboutPage()];
+  List<Widget> _screens = [HomePage(), HomePage(), ProductPage(), AboutPage()];
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +50,7 @@ class _MainPageState extends State<MainPage> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Feather.user,
+                Feather.list,
               ),
               title: Container(height: 0.0),
             ),
