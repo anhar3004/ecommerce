@@ -5,6 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
 class Details extends StatefulWidget {
+  static String tag = 'DetailProduct-page';
+  List list;
+  int index;
+  Details({this.index, this.list});
   @override
   _DetailsState createState() => _DetailsState();
 }
@@ -32,7 +36,7 @@ class _DetailsState extends State<Details> {
               buildImage(),
               SizedBox(height: 20.0),
               Text(
-                "${furnitures[0]["name"]}",
+                "${widget.list[widget.index]['nama_produk']}",
                 style: TextStyle(
                   fontSize: 32.0,
                   fontWeight: FontWeight.w900,
@@ -40,7 +44,7 @@ class _DetailsState extends State<Details> {
               ),
               SizedBox(height: 10.0),
               Text(
-                "Rp. 3.500.000",
+                "Rp. " + "${widget.list[widget.index]['harga']}",
                 style: TextStyle(
                   fontSize: 27.0,
                   fontWeight: FontWeight.w600,
@@ -54,15 +58,9 @@ class _DetailsState extends State<Details> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 60.0),
+              SizedBox(height: 20.0),
               Text(
-                "Sed porttitor lectus nibh. Cras ultricies ligula "
-                "sed magna dictum porta. Praesent sapien massa, "
-                "convallis a pellentesque nec, egestas non nisi. "
-                "Lorem ipsum dolor sit amet, consectetur adipiscing "
-                "elit. Nulla porttitor accumsan tincidunt. "
-                "Curabitur arcu erat, accumsan id imperdiet et, "
-                "porttitor at sem.",
+                "${widget.list[widget.index]['deskripsi']}",
                 style: TextStyle(
                   fontSize: 15.0,
                   // color: Colors.black,
@@ -110,7 +108,8 @@ class _DetailsState extends State<Details> {
     return Align(
       alignment: Alignment.centerRight,
       child: Padding(
-        padding: EdgeInsets.only(right: 20.0),
+        padding: EdgeInsets.fromLTRB(0, 0, 20, 150),
+        // padding: EdgeInsets.only(bottom: 120.0),
         child: Container(
           height: 60.0,
           width: 60.0,
@@ -145,8 +144,9 @@ class _DetailsState extends State<Details> {
         children: <Widget>[
           ClipRRect(
             borderRadius: BorderRadius.circular(15),
-            child: Image.asset(
-              "${furnitures[0]["img"]}",
+            child: Image.network(
+              "http://projectflutter.000webhostapp.com/assets/" +
+                  "${widget.list[widget.index]['thumbnail']}",
               height: 240.0,
               width: MediaQuery.of(context).size.width,
               fit: BoxFit.cover,

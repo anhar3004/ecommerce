@@ -1,9 +1,11 @@
+import 'package:ecommerce_app/widgets/kategori.dart';
+import 'package:ecommerce_app/widgets/produk.dart';
 import 'package:flutter/material.dart';
 
 import '../page/details.dart';
 
 class RoomItem extends StatelessWidget {
-  final Map furniture;
+  final Produk furniture;
 
   RoomItem({this.furniture});
 
@@ -28,7 +30,7 @@ class RoomItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                furniture['name'],
+                furniture.nama,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
@@ -37,8 +39,9 @@ class RoomItem extends StatelessWidget {
               SizedBox(height: 10),
               ClipRRect(
                 borderRadius: BorderRadius.circular(15),
-                child: Image.asset(
-                  "${furniture["img"]}",
+                child: Image.network(
+                  "http://projectflutter.000webhostapp.com/assets/" +
+                      furniture.thumbnail,
                   height: 240,
                   width: 280,
                   fit: BoxFit.cover,

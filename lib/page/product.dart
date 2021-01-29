@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/page/addKategori.dart';
+import 'package:ecommerce_app/page/detailKategori.dart';
 import 'package:ecommerce_app/page/detailProduct.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -17,8 +19,8 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   Future<List> getData() async {
-    final response =
-        await http.get("https://projectflutter.000webhostapp.com/getData.php");
+    final response = await http
+        .get("https://projectflutter.000webhostapp.com/getDataKategori.php");
     return json.decode(response.body);
   }
 
@@ -26,14 +28,17 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("MY STORE"),
+        title: new Text(
+          "PRODUCT CATEGORI",
+          style: TextStyle(color: Colors.white, fontSize: 20.0),
+        ),
       ),
-      floatingActionButton: new FloatingActionButton(
-        child: new Icon(Icons.add),
-        onPressed: () => Navigator.of(context).push(new MaterialPageRoute(
-          builder: (BuildContext context) => new AddData(),
-        )),
-      ),
+      // floatingActionButton: new FloatingActionButton(
+      //   child: new Icon(Icons.add),
+      //   onPressed: () => Navigator.of(context).push(new MaterialPageRoute(
+      //     builder: (BuildContext context) => new AddDataKategori(),
+      //   )),
+      // ),
       body: new FutureBuilder<List>(
         future: getData(),
         builder: (context, snapshot) {
@@ -65,13 +70,13 @@ class ItemList extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: new GestureDetector(
             onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                builder: (BuildContext context) => new Detail(
+                builder: (BuildContext context) => new DetailKategori(
                       list: list,
                       index: i,
                     ))),
             child: new Card(
               child: new ListTile(
-                title: new Text(list[i]['name_categori']),
+                title: new Text(list[i]['kategori']),
                 leading: new Icon(Icons.widgets),
               ),
             ),
