@@ -91,28 +91,28 @@ class _AboutPageState extends State<AboutPage> {
                             ),
                           ),
                           Text(
-                            "Dendy Renaldi 18111184 ",
+                            "Dendy Renaldi 18111190 ",
                             style: TextStyle(
                               color: Color.fromRGBO(143, 148, 251, 1),
                               fontSize: 25,
                             ),
                           ),
                           Text(
-                            "Moch Dicky Trifadhilah 18111184 ",
+                            "Moch Dicky Trifadhilah 18111210 ",
                             style: TextStyle(
                               color: Color.fromRGBO(143, 148, 251, 1),
                               fontSize: 25,
                             ),
                           ),
                           Text(
-                            "Muhammad Fajar 18111184 ",
+                            "Muhammad Fajar 18111216 ",
                             style: TextStyle(
                               color: Color.fromRGBO(143, 148, 251, 1),
                               fontSize: 25,
                             ),
                           ),
                           Text(
-                            "Shandi Alif Ramadhan 18111184 ",
+                            "Shandy Alif Ramadhan 18111228 ",
                             style: TextStyle(
                               color: Color.fromRGBO(143, 148, 251, 1),
                               fontSize: 25,

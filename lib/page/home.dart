@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
 
   produk() {
     return Container(
-      height: 670,
+      height: 680,
       child: FutureBuilder<List>(
         future: getData(),
         builder: (context, snapshot) {
