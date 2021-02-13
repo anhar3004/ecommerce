@@ -1,4 +1,6 @@
+import 'package:ecommerce_app/page/login.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfilPage extends StatefulWidget {
   static String tag = 'profil-page';
@@ -8,6 +10,24 @@ class ProfilPage extends StatefulWidget {
 }
 
 class _ProfilPageState extends State<ProfilPage> {
+  String username = "", name = "", email = "", id = "";
+
+  getPref() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    setState(() {
+      username = preferences.getString("username");
+      name = preferences.getString("name");
+      email = preferences.getString("email");
+      id = preferences.getString("id");
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getPref();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +61,6 @@ class _ProfilPageState extends State<ProfilPage> {
                         ),
                         SliverList(
                           delegate: SliverChildListDelegate([
-                            SizedBox(height: 40.0),
                             Center(
                               child: Container(
                                 width: 200.0,
@@ -72,7 +91,7 @@ class _ProfilPageState extends State<ProfilPage> {
                             ),
                             SizedBox(height: 40.0),
                             Center(
-                              child: Text('Hello, I am "Name"',
+                              child: Text('Hello, I am $name',
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 25.0)),
                             )
@@ -81,7 +100,7 @@ class _ProfilPageState extends State<ProfilPage> {
                         SliverList(
                           delegate: SliverChildListDelegate([
                             Container(
-                              height: 200.0,
+                              height: 175.0,
                               child: GridView.count(
                                 padding: EdgeInsets.all(40.0),
                                 shrinkWrap: true,
@@ -158,7 +177,7 @@ class _ProfilPageState extends State<ProfilPage> {
                               children: <Widget>[
                                 Container(
                                   width: double.infinity,
-                                  height: 500,
+                                  height: 260,
                                   margin: EdgeInsets.only(top: 20.0),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(
@@ -171,7 +190,7 @@ class _ProfilPageState extends State<ProfilPage> {
                                     onTap: () {},
                                     child: Container(
                                       padding: EdgeInsets.symmetric(
-                                          horizontal: 60.0, vertical: 20.0),
+                                          horizontal: 50.0, vertical: 10.0),
                                       decoration: BoxDecoration(
                                           boxShadow: [
                                             BoxShadow(
@@ -185,68 +204,150 @@ class _ProfilPageState extends State<ProfilPage> {
                                             Color.fromRGBO(143, 148, 251, .8),
                                             Color.fromRGBO(143, 148, 251, 1),
                                           ])),
-                                      child: Text('USERNAME',
+                                      child: Text('@$username',
                                           style: TextStyle(
                                               color: Colors.white,
+                                              fontSize: 20,
                                               fontWeight: FontWeight.bold)),
                                     ),
                                   ),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.only(top: 60.0),
+                                  margin: EdgeInsets.only(top: 10.0),
                                   padding: EdgeInsets.all(50.0),
-                                  child: Row(
+                                  child: Column(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: <Widget>[
-                                      Flexible(
-                                        child: Column(
-                                          children: <Widget>[
-                                            Text('23',
+                                      Container(
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                              boxShadow: [
+                                                BoxShadow(
+                                                    color: Color(0XFFF39C12)
+                                                        .withOpacity(.2),
+                                                    blurRadius: 10.0)
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(100.0),
+                                              gradient: LinearGradient(colors: [
+                                                Color.fromRGBO(
+                                                    143, 148, 251, .8),
+                                                Color.fromRGBO(
+                                                    143, 148, 251, 1),
+                                              ])),
+                                          child: Center(
+                                            child: Text('ID : $id',
                                                 style: TextStyle(
-                                                    fontSize: 20.0,
-                                                    color: Color.fromRGBO(
-                                                        143, 148, 251, 1))),
-                                            Text('Posts',
-                                                style: TextStyle(
-                                                    fontSize: 15.0,
-                                                    color: Color.fromRGBO(
-                                                        143, 148, 251, 1)))
-                                          ],
-                                        ),
+                                                    color: Colors.white,
+                                                    fontSize: 25,
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                          )),
+                                      SizedBox(
+                                        height: 10,
                                       ),
-                                      Flexible(
-                                        child: Column(
-                                          children: <Widget>[
-                                            Text('123',
+                                      Container(
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                              boxShadow: [
+                                                BoxShadow(
+                                                    color: Color(0XFFF39C12)
+                                                        .withOpacity(.2),
+                                                    blurRadius: 10.0)
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(100.0),
+                                              gradient: LinearGradient(colors: [
+                                                Color.fromRGBO(
+                                                    143, 148, 251, .8),
+                                                Color.fromRGBO(
+                                                    143, 148, 251, 1),
+                                              ])),
+                                          child: Center(
+                                            child: Text('Name : $name',
                                                 style: TextStyle(
-                                                    fontSize: 20.0,
-                                                    color: Color.fromRGBO(
-                                                        143, 148, 251, 1))),
-                                            Text('Following',
-                                                style: TextStyle(
-                                                    fontSize: 15.0,
-                                                    color: Color.fromRGBO(
-                                                        143, 148, 251, 1)))
-                                          ],
-                                        ),
+                                                    color: Colors.white,
+                                                    fontSize: 25,
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                          )),
+                                      SizedBox(
+                                        height: 10,
                                       ),
-                                      Flexible(
-                                        child: Column(
-                                          children: <Widget>[
-                                            Text('2k',
+                                      Container(
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                              boxShadow: [
+                                                BoxShadow(
+                                                    color: Color(0XFFF39C12)
+                                                        .withOpacity(.2),
+                                                    blurRadius: 10.0)
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(100.0),
+                                              gradient: LinearGradient(colors: [
+                                                Color.fromRGBO(
+                                                    143, 148, 251, .8),
+                                                Color.fromRGBO(
+                                                    143, 148, 251, 1),
+                                              ])),
+                                          child: Center(
+                                            child: Text('Email  : $email',
                                                 style: TextStyle(
-                                                    fontSize: 20.0,
-                                                    color: Color.fromRGBO(
-                                                        143, 148, 251, 1))),
-                                            Text('Followers',
-                                                style: TextStyle(
-                                                    fontSize: 15.0,
-                                                    color: Color.fromRGBO(
-                                                        143, 148, 251, 1)))
-                                          ],
-                                        ),
-                                      ),
+                                                    color: Colors.white,
+                                                    fontSize: 25,
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                          ))
+                                      // Flexible(
+                                      //   child: Column(
+                                      //     children: <Widget>[
+                                      //       Text('23',
+                                      //           style: TextStyle(
+                                      //               fontSize: 20.0,
+                                      //               color: Color.fromRGBO(
+                                      //                   143, 148, 251, 1))),
+                                      //       Text('Posts',
+                                      //           style: TextStyle(
+                                      //               fontSize: 15.0,
+                                      //               color: Color.fromRGBO(
+                                      //                   143, 148, 251, 1)))
+                                      //     ],
+                                      //   ),
+                                      // ),
+                                      // Flexible(
+                                      //   child: Column(
+                                      //     children: <Widget>[
+                                      //       Text('123',
+                                      //           style: TextStyle(
+                                      //               fontSize: 20.0,
+                                      //               color: Color.fromRGBO(
+                                      //                   143, 148, 251, 1))),
+                                      //       Text('Following',
+                                      //           style: TextStyle(
+                                      //               fontSize: 15.0,
+                                      //               color: Color.fromRGBO(
+                                      //                   143, 148, 251, 1)))
+                                      //     ],
+                                      //   ),
+                                      // ),
+                                      // Flexible(
+                                      //   child: Column(
+                                      //     children: <Widget>[
+                                      //       Text('2k',
+                                      //           style: TextStyle(
+                                      //               fontSize: 20.0,
+                                      //               color: Color.fromRGBO(
+                                      //                   143, 148, 251, 1))),
+                                      //       Text('Followers',
+                                      //           style: TextStyle(
+                                      //               fontSize: 15.0,
+                                      //               color: Color.fromRGBO(
+                                      //                   143, 148, 251, 1)))
+                                      //     ],
+                                      //   ),
+                                      // ),
                                     ],
                                   ),
                                 )

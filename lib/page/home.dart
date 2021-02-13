@@ -1,17 +1,10 @@
 import 'dart:convert';
 import 'dart:async';
 import 'package:ecommerce_app/page/details.dart';
-// import 'package:ecommerce_app/widgets/produk.dart';
 import "package:http/http.dart" as http;
-import 'package:ecommerce_app/main.dart';
-import 'package:ecommerce_app/widgets/kategori.dart';
-import 'package:ecommerce_app/util/data.dart';
-import 'package:ecommerce_app/widgets/badge.dart';
-import 'package:ecommerce_app/widgets/product_item.dart';
-import 'package:ecommerce_app/widgets/room_item.dart';
 import 'package:ecommerce_app/widgets/search_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   static String tag = 'home-page';
@@ -33,20 +26,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "MY FURNITURE",
-          style: TextStyle(color: Colors.white, fontSize: 20.0),
-        ),
-        actions: <Widget>[
-          Center(
-            child: IconBadge(
-              icon: Feather.shopping_cart,
-            ),
-          ),
-          SizedBox(width: 20.0),
-        ],
-      ),
       body: ListView(
         padding: EdgeInsets.only(left: 20.0),
         children: <Widget>[

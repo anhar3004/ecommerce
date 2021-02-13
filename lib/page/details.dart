@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
 class Details extends StatefulWidget {
-  static String tag = 'DetailProduct-page';
+  static String tag = 'details-page';
   List list;
   int index;
   Details({this.index, this.list});

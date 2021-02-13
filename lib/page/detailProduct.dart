@@ -1,12 +1,13 @@
 import 'package:ecommerce_app/page/editProduct.dart';
+import 'package:ecommerce_app/page/home.dart';
+import 'package:ecommerce_app/page/login.dart';
+import 'package:ecommerce_app/page/main_page.dart';
 import 'package:ecommerce_app/page/product.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-import 'main_page.dart';
-
 class Detail extends StatefulWidget {
-  static String tag = 'DetailProduct-page';
+  static String tag = 'detail-page';
   List list;
   int index;
   Detail({this.index, this.list});
@@ -48,7 +49,7 @@ class _DetailState extends State<Detail> {
                   color: Colors.purple[400],
                   onPressed: () {
                     deleteData();
-                    Navigator.of(context).pushNamed(ProductPage.tag);
+                    Navigator.of(context).pushNamed(LoginPage.tag);
                   },
                 ),
               ),

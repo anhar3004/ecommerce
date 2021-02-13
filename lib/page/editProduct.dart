@@ -8,6 +8,8 @@ import 'package:ecommerce_app/page/product.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import 'login.dart';
+
 class EditData extends StatefulWidget {
   static String tag = 'EditProduct-page';
   final List list;
@@ -201,7 +203,7 @@ class _EditDataState extends State<EditData> {
                       ),
                       onPressed: () {
                         editData();
-                        Navigator.of(context).pushNamed(ProductPage.tag);
+                        Navigator.of(context).pushNamed(LoginPage.tag);
                       },
                     )),
               ],

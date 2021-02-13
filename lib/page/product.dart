@@ -27,12 +27,12 @@ class _ProductPageState extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(
-          "PRODUCT CATEGORI",
-          style: TextStyle(color: Colors.white, fontSize: 20.0),
-        ),
-      ),
+      // appBar: new AppBar(
+      //   title: new Text(
+      //     "PRODUCT CATEGORI",
+      //     style: TextStyle(color: Colors.white, fontSize: 20.0),
+      //   ),
+      // ),
       // floatingActionButton: new FloatingActionButton(
       //   child: new Icon(Icons.add),
       //   onPressed: () => Navigator.of(context).push(new MaterialPageRoute(

@@ -11,7 +11,6 @@ import 'package:ecommerce_app/page/profil.dart';
 import 'package:ecommerce_app/page/register.dart';
 import 'package:ecommerce_app/util/const.dart';
 import 'package:flutter/material.dart';
-
 import 'page/main_page.dart';
 
 void main() {
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
     RegisterPage.tag: (context) => RegisterPage(),
     HomePage.tag: (context) => HomePage(),
     Details.tag: (context) => Details(),
-    MainPage.tag: (context) => MainPage(),
+    // MainPage.tag: (context) => MainPage(),
     ProductPage.tag: (context) => ProductPage(),
     ProfilPage.tag: (context) => ProfilPage(),
     DetailKategori.tag: (context) => DetailKategori(),

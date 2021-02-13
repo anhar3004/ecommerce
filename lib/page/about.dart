@@ -2,7 +2,7 @@ import 'package:ecommerce_app/animation/animation.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatefulWidget {
-  static String tag = 'login-page';
+  static String tag = 'about-page';
 
   @override
   _AboutPageState createState() => _AboutPageState();
@@ -85,6 +85,34 @@ class _AboutPageState extends State<AboutPage> {
                           ),
                           Text(
                             "Anhar Hadhitya 18111184 ",
+                            style: TextStyle(
+                              color: Color.fromRGBO(143, 148, 251, 1),
+                              fontSize: 25,
+                            ),
+                          ),
+                          Text(
+                            "Dendy Renaldi 18111184 ",
+                            style: TextStyle(
+                              color: Color.fromRGBO(143, 148, 251, 1),
+                              fontSize: 25,
+                            ),
+                          ),
+                          Text(
+                            "Moch Dicky Trifadhilah 18111184 ",
+                            style: TextStyle(
+                              color: Color.fromRGBO(143, 148, 251, 1),
+                              fontSize: 25,
+                            ),
+                          ),
+                          Text(
+                            "Muhammad Fajar 18111184 ",
+                            style: TextStyle(
+                              color: Color.fromRGBO(143, 148, 251, 1),
+                              fontSize: 25,
+                            ),
+                          ),
+                          Text(
+                            "Shandi Alif Ramadhan 18111184 ",
                             style: TextStyle(
                               color: Color.fromRGBO(143, 148, 251, 1),
                               fontSize: 25,

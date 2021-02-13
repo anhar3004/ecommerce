@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/animation/animation.dart';
 import 'package:ecommerce_app/page/login.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class RegisterPage extends StatefulWidget {
   static String tag = 'register-page';
@@ -10,6 +11,23 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
+  TextEditingController controllerUsername = new TextEditingController();
+  TextEditingController controllerName = new TextEditingController();
+  TextEditingController controllerEmail = new TextEditingController();
+  TextEditingController controllerPassword = new TextEditingController();
+
+  void addData() {
+    var url = "https://projectflutter.000webhostapp.com/addUser.php";
+
+    http.post(url, body: {
+      "username": controllerUsername.text,
+      "name": controllerName.text,
+      "email": controllerEmail.text,
+      "password": controllerPassword.text,
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,71 +107,101 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: Column(
                         children: <Widget>[
                           Container(
-                            padding: EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                                // color: Colors.white,
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color.fromRGBO(143, 148, 251, 1),
-                                  )
-                                ]),
-                            child: Column(
-                              children: <Widget>[
-                                Container(
-                                  padding: EdgeInsets.all(8.0),
-                                  decoration: BoxDecoration(
-                                      border: Border(
-                                          bottom:
-                                              BorderSide(color: Colors.white))),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                        border: InputBorder.none,
-                                        hintText: "Email",
-                                        hintStyle:
-                                            TextStyle(color: Colors.white)),
-                                  ),
+                              padding: EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                  // color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color.fromRGBO(143, 148, 251, 1),
+                                    )
+                                  ]),
+                              child: Form(
+                                key: _key,
+                                child: Column(
+                                  children: <Widget>[
+                                    Container(
+                                      padding: EdgeInsets.all(8.0),
+                                      decoration: BoxDecoration(
+                                          border: Border(
+                                              bottom: BorderSide(
+                                                  color: Colors.white))),
+                                      child: TextFormField(
+                                        controller: controllerUsername,
+                                        validator: (value) {
+                                          if (value.isEmpty) {
+                                            return "isi username anda";
+                                          }
+                                          return null;
+                                        },
+                                        decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            hintText: "Username",
+                                            hintStyle:
+                                                TextStyle(color: Colors.white)),
+                                      ),
+                                    ),
+                                    Container(
+                                        padding: EdgeInsets.all(8.0),
+                                        decoration: BoxDecoration(
+                                            border: Border(
+                                                bottom: BorderSide(
+                                                    color: Colors.white))),
+                                        child: TextFormField(
+                                          controller: controllerName,
+                                          validator: (value) {
+                                            if (value.isEmpty) {
+                                              return "isi nama lengkap anda";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: InputDecoration(
+                                              border: InputBorder.none,
+                                              hintText: "Name",
+                                              hintStyle: TextStyle(
+                                                  color: Colors.white)),
+                                        )),
+                                    Container(
+                                      padding: EdgeInsets.all(8.0),
+                                      decoration: BoxDecoration(
+                                          border: Border(
+                                              bottom: BorderSide(
+                                                  color: Colors.white))),
+                                      child: TextFormField(
+                                        controller: controllerEmail,
+                                        validator: (value) {
+                                          if (value.isEmpty) {
+                                            return "isi email anda";
+                                          }
+                                          return null;
+                                        },
+                                        decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            hintText: "Email",
+                                            hintStyle:
+                                                TextStyle(color: Colors.white)),
+                                      ),
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: TextFormField(
+                                        controller: controllerPassword,
+                                        validator: (value) {
+                                          if (value.isEmpty) {
+                                            return "isi password anda";
+                                          }
+                                          return null;
+                                        },
+                                        decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            hintText: "Password",
+                                            hintStyle:
+                                                TextStyle(color: Colors.white)),
+                                      ),
+                                    )
+                                  ],
                                 ),
-                                Container(
-                                    padding: EdgeInsets.all(8.0),
-                                    decoration: BoxDecoration(
-                                        border: Border(
-                                            bottom: BorderSide(
-                                                color: Colors.white))),
-                                    child: TextField(
-                                      decoration: InputDecoration(
-                                          border: InputBorder.none,
-                                          hintText: "Phone number",
-                                          hintStyle:
-                                              TextStyle(color: Colors.white)),
-                                    )),
-                                Container(
-                                  padding: EdgeInsets.all(8.0),
-                                  decoration: BoxDecoration(
-                                      border: Border(
-                                          bottom:
-                                              BorderSide(color: Colors.white))),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                        border: InputBorder.none,
-                                        hintText: "Password",
-                                        hintStyle:
-                                            TextStyle(color: Colors.white)),
-                                  ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                        border: InputBorder.none,
-                                        hintText: "Confirm Password",
-                                        hintStyle:
-                                            TextStyle(color: Colors.white)),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
+                              )),
                           SizedBox(
                             height: 30,
                           ),
@@ -176,6 +224,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   ),
                                 ),
                                 onPressed: () {
+                                  addData();
                                   Navigator.of(context)
                                       .pushNamed(LoginPage.tag);
                                 },
