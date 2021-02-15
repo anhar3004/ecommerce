@@ -131,12 +131,12 @@ class _EditDataState extends State<EditData> {
                         ),
                       ),
                       Container(
-                          height: 50,
+                          height: 70,
                           padding: EdgeInsets.all(10.0),
                           decoration: BoxDecoration(
                               border: Border(
                                   bottom: BorderSide(color: Colors.white))),
-                          child: TextField(
+                          child: TextFormField(
                             controller: controllerDescription,
                             decoration: InputDecoration(
                                 border: InputBorder.none,

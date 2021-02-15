@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:async';
 import 'package:ecommerce_app/page/addProduct.dart';
 import 'package:ecommerce_app/page/detailProduct.dart';
-import 'package:ecommerce_app/page/home.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -60,7 +59,14 @@ class _DetailKategoriState extends State<DetailKategori> {
                     child: new Card(
                       child: new ListTile(
                         title: new Text(snapshot.data[i]['nama_produk']),
-                        leading: new Icon(Icons.widgets),
+                        leading: new Image.network(
+                          "http://projectflutter.000webhostapp.com/assets/" +
+                              snapshot.data[i]['thumbnail'],
+                          height: 50.0,
+                          width: 50.0,
+                          fit: BoxFit.cover,
+                        ),
+                        subtitle: new Text("Rp. " + snapshot.data[i]['harga']),
                       ),
                     ),
                   ),

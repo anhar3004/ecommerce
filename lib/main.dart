@@ -11,7 +11,6 @@ import 'package:ecommerce_app/page/profil.dart';
 import 'package:ecommerce_app/page/register.dart';
 import 'package:ecommerce_app/util/const.dart';
 import 'package:flutter/material.dart';
-import 'page/main_page.dart';
 
 void main() {
   runApp(MyApp());

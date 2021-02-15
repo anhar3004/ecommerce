@@ -77,7 +77,7 @@ class ItemList extends StatelessWidget {
             child: new Card(
               child: new ListTile(
                 title: new Text(list[i]['kategori']),
-                leading: new Icon(Icons.widgets),
+                leading: new Icon(Icons.list),
               ),
             ),
           ),

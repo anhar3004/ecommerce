@@ -201,7 +201,7 @@ class _AddDataState extends State<AddData> {
                                   hintStyle: TextStyle(color: Colors.white)),
                             )),
                         Container(
-                            height: 50,
+                            height: 70,
                             padding: EdgeInsets.all(10.0),
                             decoration: BoxDecoration(
                                 border: Border(

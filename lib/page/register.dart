@@ -17,6 +17,13 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController controllerEmail = new TextEditingController();
   TextEditingController controllerPassword = new TextEditingController();
 
+  bool _secureText = true;
+  showHide() {
+    setState(() {
+      _secureText = !_secureText;
+    });
+  }
+
   void addData() {
     var url = "https://projectflutter.000webhostapp.com/addUser.php";
 
@@ -26,6 +33,14 @@ class _RegisterPageState extends State<RegisterPage> {
       "email": controllerEmail.text,
       "password": controllerPassword.text,
     });
+  }
+
+  add() {
+    final form = _key.currentState;
+    if (form.validate()) {
+      addData();
+      Navigator.of(context).pushNamed(LoginPage.tag);
+    }
   }
 
   @override
@@ -130,7 +145,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                         controller: controllerUsername,
                                         validator: (value) {
                                           if (value.isEmpty) {
-                                            return "isi username anda";
+                                            return "Please insert username";
                                           }
                                           return null;
                                         },
@@ -151,7 +166,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                           controller: controllerName,
                                           validator: (value) {
                                             if (value.isEmpty) {
-                                              return "isi nama lengkap anda";
+                                              return "Please insert fullname";
                                             }
                                             return null;
                                           },
@@ -171,7 +186,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                         controller: controllerEmail,
                                         validator: (value) {
                                           if (value.isEmpty) {
-                                            return "isi email anda";
+                                            return "Please insert Email";
                                           }
                                           return null;
                                         },
@@ -185,18 +200,26 @@ class _RegisterPageState extends State<RegisterPage> {
                                     Container(
                                       padding: EdgeInsets.all(8.0),
                                       child: TextFormField(
+                                        obscureText: _secureText,
                                         controller: controllerPassword,
                                         validator: (value) {
                                           if (value.isEmpty) {
-                                            return "isi password anda";
+                                            return "Please insert Password";
                                           }
                                           return null;
                                         },
                                         decoration: InputDecoration(
-                                            border: InputBorder.none,
-                                            hintText: "Password",
-                                            hintStyle:
-                                                TextStyle(color: Colors.white)),
+                                          border: InputBorder.none,
+                                          hintText: "Password",
+                                          hintStyle:
+                                              TextStyle(color: Colors.white),
+                                          suffixIcon: IconButton(
+                                            onPressed: showHide,
+                                            icon: Icon(_secureText
+                                                ? Icons.visibility_off
+                                                : Icons.visibility),
+                                          ),
+                                        ),
                                       ),
                                     )
                                   ],
@@ -224,9 +247,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   ),
                                 ),
                                 onPressed: () {
-                                  addData();
-                                  Navigator.of(context)
-                                      .pushNamed(LoginPage.tag);
+                                  add();
                                 },
                               )),
                         ],

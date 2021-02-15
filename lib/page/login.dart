@@ -23,11 +23,17 @@ class _LoginPageState extends State<LoginPage> {
   LoginStatus _loginStatus = LoginStatus.notSignin;
   String username;
   String password;
-  // String alert = 'siap login';
+  bool _secureText = true;
 
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
   TextEditingController emailInput = new TextEditingController();
   TextEditingController passwordInput = new TextEditingController();
+
+  showHide() {
+    setState(() {
+      _secureText = !_secureText;
+    });
+  }
 
   check() {
     final form = _key.currentState;
@@ -232,6 +238,7 @@ class _LoginPageState extends State<LoginPage> {
                                     Container(
                                       padding: EdgeInsets.all(8.0),
                                       child: TextFormField(
+                                        obscureText: _secureText,
                                         onSaved: (e) => password = e,
                                         validator: (value) {
                                           if (value.isEmpty) {
@@ -240,10 +247,17 @@ class _LoginPageState extends State<LoginPage> {
                                           return null;
                                         },
                                         decoration: InputDecoration(
-                                            border: InputBorder.none,
-                                            hintText: "Password",
-                                            hintStyle:
-                                                TextStyle(color: Colors.white)),
+                                          border: InputBorder.none,
+                                          hintText: "Password",
+                                          hintStyle:
+                                              TextStyle(color: Colors.white),
+                                          suffixIcon: IconButton(
+                                            onPressed: showHide,
+                                            icon: Icon(_secureText
+                                                ? Icons.visibility_off
+                                                : Icons.visibility),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ],

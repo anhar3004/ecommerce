@@ -13,13 +13,13 @@ class ProductItem extends StatelessWidget {
       padding: EdgeInsets.only(right: 20),
       child: GestureDetector(
         onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (BuildContext context) {
-                return Details();
-              },
-            ),
-          );
+          // Navigator.of(context).push(
+          //   MaterialPageRoute(
+          //     builder: (BuildContext context) {
+          //       return Details();
+          //     },
+          //   ),
+          // );
         },
         child: Container(
           height: 140,

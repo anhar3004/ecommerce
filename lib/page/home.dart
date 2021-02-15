@@ -4,7 +4,6 @@ import 'package:ecommerce_app/page/details.dart';
 import "package:http/http.dart" as http;
 import 'package:ecommerce_app/widgets/search_card.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   static String tag = 'home-page';
@@ -170,7 +169,8 @@ class _ListProdukState extends State<ListProduk> {
             return Center(child: CircularProgressIndicator());
           return new ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: snapshot.data == null ? 0 : snapshot.data.length,
+              // itemCount: snapshot.data == null ? 0 : snapshot.data.length,
+              itemCount: 5,
               itemBuilder: (context, i) {
                 return Padding(
                   padding: EdgeInsets.only(right: 20),
